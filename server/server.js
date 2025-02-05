@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const jobRoutes = require("./routes/jobRoutes")
 
 dotenv.config();
 connectDB();
@@ -18,6 +19,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.use("/organization/jobs", jobRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
