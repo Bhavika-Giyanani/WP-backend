@@ -26,7 +26,7 @@ app.use(
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(eventRoutes);
 
-app.use("/organization/jobs", jobRoutes);
+app.use(jobRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
