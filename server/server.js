@@ -6,6 +6,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger-output.json");
 const connectDB = require("./config/db");
 const eventRoutes = require("./routes/eventRoutes");
+const registeredEventRoutes = require("./routes/registeredEventRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(eventRoutes);
 
 app.use(jobRoutes);
+app.use(registeredEventRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
