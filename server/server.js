@@ -8,6 +8,7 @@ const connectDB = require("./config/db");
 const eventRoutes = require("./routes/eventRoutes");
 const registeredEventRoutes = require("./routes/registeredEventRoutes");
 const jobRoutes = require("./routes/jobRoutes");
+const appliedJobsRoutes = require("./routes/appliedJobsRoutes");
 
 dotenv.config();
 connectDB();
@@ -29,6 +30,8 @@ app.use(eventRoutes);
 
 app.use(jobRoutes);
 app.use(registeredEventRoutes);
+
+app.use(appliedJobsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
